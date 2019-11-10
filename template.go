@@ -297,7 +297,7 @@ func ActiveTemplate(shopid, data string) models.RequestResult {
 func GetTemplateConfig(shopid, data string) models.RequestResult {
 
 	code := data
-
+	log.Debugf("GetTemplateConfig ")
 	tmplconfigs := rpb.GetTemplateConfigs(shopid, code)
 	str := `{"TemplateConfigs":[`
 	for _, cfg := range tmplconfigs {

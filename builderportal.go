@@ -109,7 +109,7 @@ func myRoute(c *gin.Context, requestDomain string) models.RequestResult {
 	if len(urls) > 1 {
 		session = urls[1]
 	}
-
+	log.Debugf("call "+name+" with data %v", urls)
 	if name == "submit" {
 		key = c.PostForm("key")
 		if key != "" {
@@ -154,6 +154,7 @@ func myRoute(c *gin.Context, requestDomain string) models.RequestResult {
 		userid = checkauth(key)
 	} else {
 		//check auth
+		log.Debugf("check auth with session " + session)
 		if session != "" {
 			request := "aut|" + session
 			rs := c3mcommon.RequestMainService(request, "POST", "aut")
