@@ -171,6 +171,7 @@ func myRoute(c *gin.Context, requestDomain string) models.RequestResult {
 			}
 
 		}
+		log.Debugf("check auth done ")
 	}
 
 	//RPC call
