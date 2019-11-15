@@ -2,3 +2,5 @@
 bportalmac
 .DS_Store
 /templates
+*.log
+*.zip

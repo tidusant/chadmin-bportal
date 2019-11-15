@@ -19,4 +19,4 @@ templatepath="./templates/"
 sameurllimit=1
 #limit request in 3s
 requestlimit=500
-zipfileextallow=".jpg,.jpeg,.png,.gif,.txt,.html,.js,.css,.eot,.svg,.ttf,.woff,.woff2,.otf"
+zipfileextallow=".ico,.jpg,.jpeg,.png,.gif,.txt,.html,.js,.css,.eot,.svg,.ttf,.woff,.woff2,.otf"
