@@ -59,7 +59,7 @@ func main() {
 
 	log.Infof("running with port:" + strconv.Itoa(port))
 
-	//check auth
+	//check auth test dev
 
 	//init config
 
