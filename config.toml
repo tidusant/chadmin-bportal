@@ -12,6 +12,9 @@ p="@tmpbu.sex"
 [config]
 domainallow="localhost.com,x.localhost,duyhf.noip.me,client.template.localhost"
 clienttemplatedomain="client.template.localhost"
+#=====demo account
+demouser="demodata"
+demouserpass="xyz"
 #proxy="http://127.0.0.1:8866"
 mainserver="http://x.localhost/"
 hostname="http://b.localhost/"
