@@ -4,13 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"path/filepath"
-	"time"
-
 	"github.com/spf13/viper"
 	"github.com/tidusant/c3m-common/c3mcommon"
 	"github.com/tidusant/c3m-common/log"
+	"io/ioutil"
+	"path/filepath"
+	"time"
 )
 
 func Loaddata() string {
@@ -19,9 +18,21 @@ func Loaddata() string {
 	temprootpath := viper.GetString("config.templatepath")
 	timestart := time.Now()
 	strrt := "{\"ShopTitle\":\"Demo title\",\"ShopDescription\":\"Demo description\"" // ,\"Prods\":"
-	// prods := rpch.GetDemoProds()
-	// info, _ := json.Marshal(prods)
-	// strrt += string(info)
+
+	strrt += ",\"Prods\":"
+
+	//get demodata
+	request := "DemoData"
+	rs := c3mcommon.RequestMainService(request, "POST", viper.GetString("config.demouser")+","+viper.GetString("config.demouserpass"))
+	if rs.Status != "1" {
+		strrt += "[]"
+	} else {
+		logininfo := ""
+		json.Unmarshal([]byte(rs.Data), &logininfo)
+		log.Debugf("data: %v", logininfo)
+		//info, _ := json.Marshal(prods)
+		strrt += string(logininfo)
+	}
 
 	// strrt += ",\"News\":"
 
@@ -33,12 +44,6 @@ func Loaddata() string {
 
 	// newscats := rpch.GetDemoNewsCats()
 	// info, _ = json.Marshal(newscats)
-	// strrt += string(info)
-
-	// strrt += ",\"ProdCats\":"
-
-	// prodcats := rpch.GetDemoProdCats()
-	// info, _ = json.Marshal(prodcats)
 	// strrt += string(info)
 
 	//get corejs
